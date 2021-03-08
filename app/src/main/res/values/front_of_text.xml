@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+
+    <style name="front_of_text">
+        <item name="android:layout_width">wrap_content</item>
+        <item name="android:layout_height">wrap_content</item>
+        <item name="android:layout_marginLeft">20dp</item>
+        <item name="android:layout_marginBottom">4dp</item>
+        <item name="android:textSize">30sp</item>
+        <item name="android:drawableEnd">@drawable/east_24</item>
+        <item name="android:drawableStart">@drawable/grass_24</item>
+        <item name="android:textColor">#d2d2d2</item>
+    </style>
+</resources>
