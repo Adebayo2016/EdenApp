@@ -12,5 +12,6 @@ public class User {
         this.user_name = user_name;
         this.user_email = user_email;
 
+
     }
 }
