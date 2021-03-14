@@ -18,7 +18,7 @@
            android:layout_marginLeft="20dp"
            android:layout_marginTop="20dp"
            android:layout_marginRight="20dp"
-           android:fontFamily="@font/nunito_semibold"
+          
            android:text="crop Name"
            android:textColor="#555555"
            android:textSize="16sp" />
@@ -31,7 +31,7 @@
            android:layout_marginLeft="20dp"
            android:layout_marginTop="50dp"
            android:layout_marginRight="30dp"
-           android:fontFamily="@font/nunito_semibold"
+
            android:text="botanical Name"
            android:textColor="#999999"
            android:textSize="14sp" />

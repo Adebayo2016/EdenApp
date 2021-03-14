@@ -1,10 +1,13 @@
-package com.eden.Weather;
+package com.eden;
 
 import com.google.gson.annotations.SerializedName;
 
 import java.util.ArrayList;
 
 public class WeatherResponse {
+
+    //not being used yet.
+
 
     @SerializedName("coord")
     public Coord coord;
@@ -41,7 +44,7 @@ class Weather {
     public String icon;
 }
 
-class Clouds {
+   class Clouds {
     @SerializedName("all")
     public float all;
 }

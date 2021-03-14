@@ -1,4 +1,6 @@
-package com.eden.Weather;
+package com.eden.WeatherUpdate;
+
+import com.eden.WeatherResponse;
 
 import retrofit2.Call;
 import retrofit2.http.GET;
