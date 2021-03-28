@@ -44,8 +44,6 @@ public class StateAdapter extends RecyclerView.Adapter<StateAdapter.StateHolder>
         holder.mTextView2.setText(currentState.getForestType());
 
 
-
-
     }
 
     @Override
@@ -57,7 +55,6 @@ public class StateAdapter extends RecyclerView.Adapter<StateAdapter.StateHolder>
 
         public TextView mTextView1;
         public TextView mTextView2;
-
 
         public StateHolder(@NonNull View itemView, OnItemClickedListener listener) {
             super(itemView);
@@ -81,6 +78,7 @@ public class StateAdapter extends RecyclerView.Adapter<StateAdapter.StateHolder>
     }
     public StateAdapter(ArrayList<StateModel> stateItem) {
         mStateList= stateItem;
+
     }
 
 }

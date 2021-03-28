@@ -5,7 +5,7 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context=".sign_up">
+    tools:context=".SignUp">
 
      <ImageView
         android:id="@+id/background"
@@ -78,7 +78,7 @@
                 android:id="@+id/name_reg"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-
+                android:textColor="@color/white"
                 android:layout_marginTop="5dp"
                 android:background="@android:color/transparent"
                 android:maxLines="1"
@@ -103,6 +103,7 @@
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:layout_marginTop="5dp"
+                android:textColor="@color/white"
                 android:inputType="textEmailAddress"
                 android:background="@android:color/transparent"
                 android:maxLines="1"
@@ -114,7 +115,8 @@
             android:id="@+id/password_reg_texr"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:hint="PASSWORD"
+            android:hint="password"
+            android:textColor="@color/white"
             style="@style/Widget.AppCompat.Button.Borderless.Colored"
             app:boxStrokeColor="@color/white"
             app:boxStrokeWidth="5dp"
@@ -128,7 +130,7 @@
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:layout_marginTop="5dp"
-                android:inputType="numberPassword|textPassword"
+                android:inputType="textPassword|numberPassword"
                 android:background="@android:color/transparent"
                 android:maxLines="1"
                 android:textSize="20sp"
@@ -139,11 +141,11 @@
             android:id="@+id/confirm_password_reg_texr"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:hint="CONFIRM PASSWORD"
+            android:hint="Confirm password "
+            app:passwordToggleDrawable="@drawable/remove_red_eye_24"
             style="@style/Widget.AppCompat.Button.Borderless.Colored"
             app:boxStrokeColor="@color/white"
             app:boxStrokeWidth="5dp"
-            app:endIconDrawable="@drawable/remove_red_eye_24"
             app:passwordToggleEnabled="true"
             app:endIconMode="custom"
             android:textColorHint="#FFFFFF">

@@ -17,7 +17,7 @@ import com.google.firebase.database.DatabaseReference;
 import java.util.ArrayList;
 
 public class StateActivity extends AppCompatActivity {
-    DatabaseReference mDatabase;
+   // DatabaseReference mDatabase;
     private RecyclerView mRecyclerView;
     private StateAdapter mAdapter;
     private RecyclerView.LayoutManager mLayoutManager;
@@ -30,24 +30,24 @@ public class StateActivity extends AppCompatActivity {
         setContentView(R.layout.states_list);
         ArrayList<StateModel> stateItem = new ArrayList<>();
 
-        stateItem.add(new StateModel("Lagos", "Rain Forest"));
+        stateItem.add(new StateModel("Ondo", "Rain Forest"));
         stateItem.add(new StateModel("Bauchi", "Savannah"));
         stateItem.add(new StateModel("Borno", "Savannah"));
         stateItem.add(new StateModel("Kano", "Savannah"));
         stateItem.add(new StateModel("Kwara", "Savannah"));
-        stateItem.add(new StateModel("Ogun", "Rain Forest"));
+       // stateItem.add(new StateModel("Ogun", "Rain Forest"));
         stateItem.add(new StateModel("Ondo", "Rain Forest"));
-        stateItem.add(new StateModel("Oyo", "Rain Forest"));
+       // stateItem.add(new StateModel("Oyo", "Rain Forest"));
         stateItem.add(new StateModel("Rivers", "Rain Forest"));
-        stateItem.add(new StateModel("Sokoto", "Savannah"));
-        stateItem.add(new StateModel("Taraba", "Savannah"));
+     //   stateItem.add(new StateModel("Sokoto", "Savannah"));
+       // stateItem.add(new StateModel("Taraba", "Savannah"));
         stateItem.add(new StateModel("Osun", "Savannah"));
         stateItem.add(new StateModel("Benue", "Tropical Rainforest"));
         stateItem.add(new StateModel("Bauchi", "Savannah"));
         stateItem.add(new StateModel("Kano", "Savannah"));
         stateItem.add(new StateModel("Kwara", "Savannah"));
-        stateItem.add(new StateModel("Ogun", "Rainforest"));
-        stateItem.add(new StateModel("Rivers", "Fresh Water Swamp"));
+        stateItem.add(new StateModel("Ogun", "Rain Forest"));
+      //  stateItem.add(new StateModel("Rivers", "Fresh Water Swamp"));
         stateItem.add(new StateModel("Enugu", "Savannah"));
         stateItem.add(new StateModel("Kastina", "Savannah"));
         stateItem.add(new StateModel("Kaduna", "Savannah"));
@@ -62,7 +62,6 @@ public class StateActivity extends AppCompatActivity {
         mRecyclerView.setHasFixedSize(true);
         mLayoutManager = new LinearLayoutManager(this);
         mAdapter = new StateAdapter(stateItem);
-
         mRecyclerView.setLayoutManager(mLayoutManager);
         mRecyclerView.setAdapter(mAdapter);
 
@@ -74,14 +73,15 @@ public class StateActivity extends AppCompatActivity {
                 progressDialog.setTitle("Loading...");
                 progressDialog.show();
 
-
-                final String state = stateItem.get(position).getStateName().toString();
+                final String state = stateItem.get(position).getStateName();
+                final String stateForest = stateItem.get(position).getForestType();
                 Intent intent = new Intent(StateActivity.this, CropsActivity.class);
                 SharedPreferences preferences = getApplicationContext().getSharedPreferences("FarmerInput", Context.MODE_PRIVATE);
                 SharedPreferences.Editor editor = preferences.edit();
                 editor.putString("state", state);
                 editor.apply();
                 startActivity(intent);
+
                /* Users user =new Users("", s, e);
                 FirebaseDatabase.getInstance().getReference("Users").child(Objects.requireNonNull(Objects.requireNonNull(FirebaseAuth.getInstance()
                         .getCurrentUser())).getUid()).setValue(user).addOnCompleteListener(new OnCompleteListener<Void>() {

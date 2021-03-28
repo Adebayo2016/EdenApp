@@ -34,8 +34,8 @@
                 android:layout_marginLeft="15dp"
                 android:fontFamily="@font/open_sans_semibold"
                 android:text="Hello"
-                android:textColor="@color/white"
-                android:textSize="40sp" />
+                android:textColor="@color/black"
+                android:textSize="20sp" />
 
             <TextView
                 android:id="@+id/day_time"
@@ -47,7 +47,7 @@
                 android:layout_marginBottom="2dp"
                 android:fontFamily="sans-serif-thin"
                 android:text="its bright and sunny"
-                android:textColor="@color/white"
+                android:textColor="@color/black"
                 android:textSize="20sp"
                 android:textStyle="bold">
 
@@ -223,7 +223,7 @@
                                 android:layout_marginEnd="15dp"
                                 android:layout_marginRight="10dp"
                                 android:scaleType="centerInside"
-                                android:src="@drawable/pressure"
+                                android:src="@drawable/rain"
 
                                 />
 
@@ -251,7 +251,7 @@
                                 android:layout_marginEnd="5dp"
                                 android:layout_marginRight="5dp"
                                 android:layout_marginBottom="-18dp"
-                                android:text="Pressure" />
+                                android:text="Rainfall" />
 
 
                         </RelativeLayout>
@@ -329,6 +329,7 @@
                 android:orientation="horizontal">
 
                 <TextView
+                    android:onClick="BestTree"
                     android:id="@+id/list_crops"
                     style="@style/front_of_text"
                     android:layout_width="wrap_content"
@@ -453,7 +454,7 @@
                     android:layout_height="wrap_content"
                     android:text="TREES TO PLANT"
                     android:textStyle="bold"
-                    android:layout_marginTop="17dp"
+                    android:layout_marginTop="22dp"
                     android:layout_marginBottom="10dp"
                     android:layout_marginStart="20dp"
                     android:layout_marginEnd="20dp"
@@ -461,12 +462,18 @@
                     android:textColor="@color/black"
                     android:layout_marginLeft="5dp" />
 
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:orientation="vertical">
+
+
+                </LinearLayout>
 
                 <HorizontalScrollView
                     android:layout_below="@+id/plant_text"
                     android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:layout_marginTop="-5dp">
+                    android:layout_height="wrap_content">
 
                     <TableLayout
                         android:id="@+id/plant_horizontal"

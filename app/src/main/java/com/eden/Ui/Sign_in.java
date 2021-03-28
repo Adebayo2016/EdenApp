@@ -12,6 +12,7 @@ import androidx.annotation.Nullable;
 import androidx.appcompat.app.AppCompatActivity;
 
 import com.eden.Home;
+import com.eden.HomePage;
 import com.eden.R;
 import com.google.android.gms.tasks.OnCompleteListener;
 import com.google.android.gms.tasks.Task;
@@ -75,7 +76,7 @@ public class Sign_in  extends AppCompatActivity {
                 if (task.isSuccessful()){
 
 
-                    Intent intent =new Intent(getApplicationContext(), Home.class);
+                    Intent intent =new Intent(getApplicationContext(), HomePage.class);
                     startActivity(intent);
 
                 } else {

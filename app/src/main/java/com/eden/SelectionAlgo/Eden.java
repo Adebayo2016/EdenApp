@@ -1,5 +1,7 @@
 package com.eden.SelectionAlgo;
 
+import android.content.Context;
+import android.content.SharedPreferences;
 import android.os.Build;
 import android.util.Log;
 
@@ -15,6 +17,8 @@ import java.util.stream.Collectors;
 public class Eden {
 
     private static Double offset = 10.0;
+
+
 
     public Optional<Tree> getBestTreeMatch(FarmerInput farmerInput, List<Tree> trees){
         //throw an exception if tree list is empty
