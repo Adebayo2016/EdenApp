@@ -3,6 +3,7 @@ package com.eden.Ui;
 import android.content.Intent;
 import android.os.Bundle;
 import android.view.View;
+import android.view.WindowManager;
 import android.widget.EditText;
 import android.widget.ProgressBar;
 import android.widget.Toast;
@@ -40,6 +41,8 @@ public class Sign_in  extends AppCompatActivity {
        email_text=findViewById(R.id.email_login);
         password_log=findViewById(R.id.password_login);
         View progressBar = findViewById(R.id.progress_loading);
+
+        getWindow().setFlags(WindowManager.LayoutParams.FLAG_LAYOUT_NO_LIMITS, WindowManager.LayoutParams.FLAG_LAYOUT_NO_LIMITS);
 
 
 
