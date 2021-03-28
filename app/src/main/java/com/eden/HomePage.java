@@ -13,6 +13,7 @@ import android.location.LocationListener;
 import android.location.LocationManager;
 import android.os.Bundle;
 import android.provider.Settings;
+import android.view.View;
 import android.webkit.ConsoleMessage;
 import android.widget.TextView;
 import android.widget.Toast;
@@ -23,6 +24,7 @@ import androidx.appcompat.app.AppCompatActivity;
 import androidx.core.app.ActivityCompat;
 import androidx.core.content.ContextCompat;
 
+import com.eden.SelectionAlgo.Result;
 import com.eden.WeatherUpdate.WeatherService;
 import com.google.firebase.auth.FirebaseAuth;
 import com.google.firebase.database.DatabaseReference;
@@ -62,11 +64,11 @@ public class HomePage extends AppCompatActivity {
     public static String AppId = "79493d475e03c13e2699b093e7345847";
     public double latitude;
     public double longitude;
-  public int roundedValue;
-  public String  windS;
-  public  String hum;
-public  String temp_final;
-public  String press;
+    public int roundedValue;
+    public String windS;
+    public String hum;
+    public String temp_final;
+    public String press;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -74,20 +76,20 @@ public  String press;
         setContentView(R.layout.activity_home);
         temperature = findViewById(R.id.temperature_edit);
         humidity = findViewById(R.id.humidity_edit);
-        pressure= findViewById(R.id.rainfall_edit);
+        pressure = findViewById(R.id.rainfall_edit);
         windspeed = findViewById(R.id.windSpeed_edit);
         user_text = findViewById(R.id.welcome_text);
         day_time = findViewById(R.id.day_time);
 
-        ActivityCompat.requestPermissions( this,
-                new String[] {Manifest.permission.ACCESS_FINE_LOCATION}, REQUEST_LOCATION);
+        ActivityCompat.requestPermissions(this,
+                new String[]{Manifest.permission.ACCESS_FINE_LOCATION}, REQUEST_LOCATION);
         locationManager = (LocationManager) getSystemService(Context.LOCATION_SERVICE);
         if (!locationManager.isProviderEnabled(LocationManager.GPS_PROVIDER)) {
             OnGPS();
         } else {
             getCurrentLocation();
         }
-        Toast.makeText(getApplicationContext(), "how fr guy", Toast.LENGTH_LONG).show();
+
         // mDatabase=FirebaseDatabase.getInstance();
         // mAuth=FirebaseAuth.getInstance();
         // databaseUser= mDatabase.getReference("Users");
@@ -111,7 +113,7 @@ public  String press;
     private void OnGPS() {
 
         final AlertDialog.Builder builder = new AlertDialog.Builder(this);
-        builder.setMessage("Enable GPS").setCancelable(false).setPositiveButton("Yes", new  DialogInterface.OnClickListener() {
+        builder.setMessage("Enable GPS").setCancelable(false).setPositiveButton("Yes", new DialogInterface.OnClickListener() {
             @Override
             public void onClick(DialogInterface dialog, int which) {
                 startActivity(new Intent(Settings.ACTION_LOCATION_SOURCE_SETTINGS));
@@ -132,7 +134,7 @@ public  String press;
         //to be used for next Update
 
         if (ActivityCompat.checkSelfPermission(
-                HomePage.this,Manifest.permission.ACCESS_FINE_LOCATION) != PackageManager.PERMISSION_GRANTED && ActivityCompat.checkSelfPermission(
+                HomePage.this, Manifest.permission.ACCESS_FINE_LOCATION) != PackageManager.PERMISSION_GRANTED && ActivityCompat.checkSelfPermission(
                 HomePage.this, Manifest.permission.ACCESS_COARSE_LOCATION) != PackageManager.PERMISSION_GRANTED) {
             ActivityCompat.requestPermissions(this, new String[]{Manifest.permission.ACCESS_FINE_LOCATION}, REQUEST_LOCATION);
         } else {
@@ -140,11 +142,11 @@ public  String press;
             if (locationGPS != null) {
                 double lat = locationGPS.getLatitude();
                 double longi = locationGPS.getLongitude();
-                String flat=Double.toString(lat);
-                String lng=Double.toString(longi);
+                String flat = Double.toString(lat);
+                String lng = Double.toString(longi);
                 Toast.makeText(this, lng, Toast.LENGTH_SHORT).show();
 
-               // showLocation.setText("Your Location: " + "\n" + "Latitude: " + latitude + "\n" + "Longitude: " + longitude);
+                // showLocation.setText("Your Location: " + "\n" + "Latitude: " + latitude + "\n" + "Longitude: " + longitude);
             } else {
                 Toast.makeText(this, "Unable to find location.", Toast.LENGTH_SHORT).show();
             }
@@ -155,53 +157,62 @@ public  String press;
 
     void run() throws IOException {
 
-        OkHttpClient client=new OkHttpClient();
-        Request request=new Request.Builder().url(BaseUrl2).build();
-      client.newCall(request).enqueue(new Callback() {
-          @Override
-          public void onFailure(@NotNull Call call, @NotNull IOException e) {
+        OkHttpClient client = new OkHttpClient();
+        Request request = new Request.Builder().url(BaseUrl2).build();
+        client.newCall(request).enqueue(new Callback() {
+            @Override
+            public void onFailure(@NotNull Call call, @NotNull IOException e) {
 
-          }
+            }
 
-          @Override
-          public void onResponse(@NotNull Call call, @NotNull Response response) throws IOException {
+            @Override
+            public void onResponse(@NotNull Call call, @NotNull Response response) throws IOException {
 
-              final String myResponse = response.body().string();
+                final String myResponse = response.body().string();
 
-              HomePage.this.runOnUiThread(new Runnable() {
-                  @Override
-                  public void run() {
-                      try {
-                          JSONObject jsonObject = new JSONObject(myResponse);
+                HomePage.this.runOnUiThread(new Runnable() {
+                    @Override
+                    public void run() {
+                        try {
+                            JSONObject jsonObject = new JSONObject(myResponse);
 
-                          double tempResult=jsonObject.getJSONObject("main").getDouble("temp")-273.15;
-                           roundedValue=(int)Math.rint(tempResult);
-                           windS=jsonObject.getJSONObject("wind").getString("speed");
-                           hum=jsonObject.getJSONObject("main").getString("humidity");
-                           temp_final=Integer.toString(roundedValue);
-                           press=jsonObject.getJSONObject("main").getString("pressure");
-                              UpdateScreen();
+                            double tempResult = jsonObject.getJSONObject("main").getDouble("temp") - 273.15;
+                            roundedValue = (int) Math.rint(tempResult);
+                            windS = jsonObject.getJSONObject("wind").getString("speed");
+                            hum = jsonObject.getJSONObject("main").getString("humidity");
+                            temp_final = Integer.toString(roundedValue);
+                            press = jsonObject.getJSONObject("main").getString("pressure");
+                            UpdateScreen();
 
 
-                      } catch (JSONException e) {
-                          e.printStackTrace();
-                      }
+                        } catch (JSONException e) {
+                            e.printStackTrace();
+                        }
 
-                  }
-              });
+                    }
+                });
 
-          }
-      });
+            }
+        });
     }
 
-    public  void UpdateScreen(){
-        temperature.setText(temp_final+"°C");
-        windspeed.setText(windS+ "m/s");
-        humidity.setText(hum+" g/m\u00B2");
-        pressure.setText(press +"N/m");
+    //update Weather result to Screen
+
+    public void UpdateScreen() {
+        temperature.setText(temp_final + "°C");
+        windspeed.setText(windS + " m/s");
+        humidity.setText(hum + " g/m\u00B2");
+        pressure.setText(press + " N/m");
 
 
     }
 
+    public void BestTree(View view) {
+
+        Intent TreeIntent = new Intent(this, StateActivity.class);
+        startActivity(TreeIntent);
     }
+
+}
+
 

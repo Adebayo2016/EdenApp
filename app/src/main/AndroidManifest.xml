@@ -5,6 +5,7 @@
 
     <uses-permission android:name="android.permission.ACCESS_FINE_LOCATION"/>
     <uses-permission android:name="android.permission.ACCESS_COARSE_LOCATION"/>
+
     <uses-permission android:name="android.permission.INTERNET"/>
 
     <application
@@ -22,6 +23,14 @@
 
         <activity android:name=".HomePage" >
 
+
+        </activity>
+        <activity android:name=".SignUp" >
+
+
+        </activity>
+        <activity android:name=".SplashScreen" >
+
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
 
@@ -29,6 +38,12 @@
             </intent-filter>
 
         </activity>
+        <activity android:name=".Ui.Sign_in" />
+        <activity android:name=".CropsActivity" />
+        <activity android:name=".StateActivity" >
+
+        </activity>
+        <activity android:name=".SelectionAlgo.Result" />
 
 
     </application>

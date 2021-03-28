@@ -6,7 +6,7 @@ public class CropsModel {
     private String BotanicalName;
     public Double shadeRequirement;
 
-    private CropsModel(){}
+    public CropsModel(){}
 
 
     public Double getShadeRequirement() {
@@ -17,7 +17,7 @@ public class CropsModel {
         this.shadeRequirement = shadeRequirement;
     }
 
-    private CropsModel(String CropName, String BotanicalName, double shadeRequirement){
+    public CropsModel(String CropName, String BotanicalName, double shadeRequirement){
 
         this.CropName=CropName;
         this.BotanicalName=BotanicalName;

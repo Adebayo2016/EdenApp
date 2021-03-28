@@ -9,31 +9,46 @@ import androidx.annotation.NonNull;
 import androidx.recyclerview.widget.RecyclerView;
 
 import com.eden.Models.CropsModel;
+import com.eden.Models.StateModel;
 import com.eden.R;
-import com.firebase.ui.firestore.FirestoreRecyclerAdapter;
 import com.firebase.ui.firestore.FirestoreRecyclerOptions;
-import com.google.firebase.firestore.DocumentSnapshot;
+
+import java.util.ArrayList;
 
 
+public class CropsAdapter extends RecyclerView.Adapter<CropsAdapter.CropsHolder> {
+    private OnItemClickedListener mListener;
 
- public class CropsAdapter extends FirestoreRecyclerAdapter<CropsModel, CropsAdapter.CropsHolder> {
-  private OnItemClickListener listener;
+    private ArrayList<CropsModel> mCropList;
 
-    public CropsAdapter(@NonNull FirestoreRecyclerOptions<CropsModel> options) {
-        super(options);
+    public interface OnItemClickedListener{
+        void OnItemClick(int position);
     }
 
-    @Override
-    protected void onBindViewHolder(@NonNull CropsHolder holder, int position, @NonNull CropsModel model) {
-        holder.crop.setText(model.getCropName());
-        holder.botanical_name.setText(model.getBotanicalName());
+
+    public void setOnItemClickListener(CropsAdapter.OnItemClickedListener listener){
+        mListener=listener;
     }
 
     @NonNull
     @Override
     public CropsHolder onCreateViewHolder(@NonNull ViewGroup parent, int viewType) {
         View v= LayoutInflater.from(parent.getContext()).inflate(R.layout.crops_item_list,parent, false);
-        return new CropsHolder(v) ;
+        CropsHolder cropsHolder=new CropsHolder(v, (OnItemClickedListener) mListener);
+        return cropsHolder;
+    }
+
+    @Override
+    public void onBindViewHolder(@NonNull CropsHolder holder, int position) {
+        CropsModel currentCrop= mCropList.get(position);
+        holder.crop.setText(currentCrop.getCropName());
+        holder.botanical_name.setText(currentCrop.getBotanicalName());
+
+    }
+
+    @Override
+    public int getItemCount() {
+        return mCropList.size();
     }
 
     class CropsHolder extends RecyclerView.ViewHolder{
@@ -42,43 +57,36 @@ import com.google.firebase.firestore.DocumentSnapshot;
         private TextView crop;
         private TextView botanical_name;
 
-        public CropsHolder(@NonNull View itemView) {
+        public CropsHolder(@NonNull View itemView, CropsAdapter.OnItemClickedListener listener) {
             super(itemView);
             crop = itemView.findViewById(R.id.crop_name);
             botanical_name = itemView.findViewById(R.id.Botanical);
             itemView.setOnClickListener(new View.OnClickListener() {
                 @Override
                 public void onClick(View v) {
-                    int position=getAdapterPosition();
-                    if(position !=RecyclerView.NO_POSITION&& listener !=null){
-                        listener.OnItemClick(getSnapshots().getSnapshot(position), position);
-
+                    if(listener!=null){
+                        int position =getAdapterPosition();
+                        if(position!=RecyclerView.NO_POSITION){
+                            listener.OnItemClick(position);
+                        }
                     }
+
                 }
             });
 
 
-                }
-
         }
 
 
-    public    interface OnItemClickListener{
-
-        void OnItemClick(DocumentSnapshot documentSnapshot, int position);
-
-
 
     }
 
-
-
-
-
-public  void setOnItemClickListener(OnItemClickListener listener){
-        this.listener=listener;
+    public CropsAdapter(ArrayList<CropsModel> cropItem) {
+        mCropList =cropItem;
 
     }
+
 }
+
 
 

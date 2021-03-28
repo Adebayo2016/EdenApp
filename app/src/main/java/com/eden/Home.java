@@ -16,7 +16,7 @@ public class Home extends AppCompatActivity {
     }
 
     public void best_tree(View view) {
-        Intent i= new Intent (this, sign_up.class);
+        Intent i= new Intent (this, SignUp.class);
         startActivity(i);
 
 
