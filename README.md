@@ -1,3 +1,5 @@
+![Screenshot_20210401-202124](https://user-images.githubusercontent.com/23731070/113344164-0286c780-9331-11eb-9dd1-3b9b882e9fd6.png)
+![Screenshot_20210401-202108](https://user-images.githubusercontent.com/23731070/113344287-29dd9480-9331-11eb-8beb-152b7476bcbd.png)
 # Eden
 Eden is an agricultural technology created to educate and provide farmers, communities and individual on the knowledge of afforestation and how it can be incorporated into farming and the environment.
 Eden Is solely aimed at achieving 3 sustainable developments goal’s (SDG) which are, zero hunger (2), climate action (13) and life on land (15).	
@@ -47,6 +49,10 @@ Eden is looking forward to partner with Agricultural bodies (both Governmental a
 #Getting current weather location
 
  Eden gets its weather forecast Using the OpenWeatherMap API
+![Screenshot_20210401-201900](https://user-images.githubusercontent.com/23731070/113344532-7a54f200-9331-11eb-910a-f7fa195cf147.png)
+![Screenshot_20210401-201900](https://user-images.githubusercontent.com/23731070/113344602-935da300-9331-11eb-8b82-7af67eae65e8.png)
+![Screenshot_20210401-201913](https://user-images.githubusercontent.com/23731070/113344724-c142e780-9331-11eb-8081-12ad9c44986d.png)
+![Screenshot_20210401-201934](https://user-images.githubusercontent.com/23731070/113344784-d28bf400-9331-11eb-901a-0b73a7f42bc1.png)
 
 
 # Installation 
