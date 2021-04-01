@@ -1,18 +1,16 @@
-package com.eden.Ui;
+package com.eden.Authentication;
 
+import android.app.ProgressDialog;
 import android.content.Intent;
 import android.os.Bundle;
 import android.view.View;
-import android.view.WindowManager;
 import android.widget.EditText;
-import android.widget.ProgressBar;
 import android.widget.Toast;
 
 import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
 import androidx.appcompat.app.AppCompatActivity;
 
-import com.eden.Home;
 import com.eden.HomePage;
 import com.eden.R;
 import com.google.android.gms.tasks.OnCompleteListener;
@@ -40,9 +38,7 @@ public class Sign_in  extends AppCompatActivity {
 
        email_text=findViewById(R.id.email_login);
         password_log=findViewById(R.id.password_login);
-        View progressBar = findViewById(R.id.progress_loading);
 
-        getWindow().setFlags(WindowManager.LayoutParams.FLAG_LAYOUT_NO_LIMITS, WindowManager.LayoutParams.FLAG_LAYOUT_NO_LIMITS);
 
 
 
@@ -71,6 +67,11 @@ public class Sign_in  extends AppCompatActivity {
         password_log.setError("please enter your password");
 
     }
+
+        final ProgressDialog progressDialog = new ProgressDialog(this);
+        progressDialog.setTitle("Logging you in...");
+        progressDialog.show();
+
 
         mAuth.signInWithEmailAndPassword(email,password).addOnCompleteListener(new OnCompleteListener<AuthResult>() {
             @Override

@@ -1,372 +1,621 @@
 <?xml version="1.0" encoding="utf-8"?>
-<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<ScrollView
+    xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     tools:context=".HomePage">
-
-    <LinearLayout
-        android:id="@+id/linear1"
-        android:layout_width="match_parent"
-        android:layout_height="200dp"
-        android:background="#36D083"
-        android:orientation="vertical"/>
-
-    <LinearLayout
-        android:id="@+id/linear2"
-        android:layout_width="match_parent"
-        android:layout_height="100dp"
-        android:gravity="center|left"
-        android:orientation="vertical">
-
-        <TextView
-            android:id="@+id/welcome_text"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_marginStart="15dp"
-            android:layout_marginLeft="15dp"
-            android:fontFamily="@font/open_sans_semibold"
-            android:text="Hello"
-            android:textColor="@color/white"
-            android:textSize="20dp" />
-
-        <TextView
-            android:id="@+id/day_time"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_marginStart="15dp"
-            android:layout_marginLeft="15dp"
-            android:layout_marginTop="5dp"
-            android:fontFamily="sans-serif-thin"
-            android:text=""
-            android:textColor="@color/white"
-            android:textSize="20sp"
-            android:textStyle="bold">
-
-        </TextView>
-
-    </LinearLayout>
-
-
     <RelativeLayout
-        android:id="@+id/relative2"
-        android:layout_width="match_parent"
-        android:layout_height="289dp"
-        android:layout_below="@id/linear1"
-        android:layout_marginTop="-90dp">
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content">
 
         <LinearLayout
-            android:id="@+id/linear_overlay"
-            android:layout_width="340dp"
-            android:layout_height="176dp"
-            android:layout_marginStart="30dp"
-            android:layout_marginLeft="30dp"
-            android:layout_marginTop="35dp"
-            android:layout_marginEnd="30dp"
-            android:layout_marginRight="30dp"
-            android:background="@android:color/white"
-            android:elevation="2dp"
-            android:orientation="vertical"
-            tools:ignore="NotSibling">
-
-            <LinearLayout
-                android:layout_width="match_parent"
-                android:layout_height="match_parent"
-                android:layout_weight="1"
-                android:orientation="horizontal">
-
-                <LinearLayout
-                    android:layout_width="match_parent"
-                    android:layout_height="match_parent"
-                    android:layout_weight="1"
-                    android:orientation="vertical">
-
-                    <RelativeLayout
-                        android:layout_width="match_parent"
-                        android:layout_height="match_parent">
-
-                        <ImageView
-                            android:id="@+id/thermometer"
-                            android:layout_width="50dp"
-                            android:layout_height="50dp"
-                            android:layout_marginStart="15dp"
-                            android:layout_marginLeft="10dp"
-                            android:layout_marginTop="15dp"
-                            android:layout_marginEnd="15dp"
-                            android:layout_marginRight="10dp"
-                            android:scaleType="centerInside"
-                            android:src="@drawable/thermometer" />
-
-                        <TextView
-                            android:id="@+id/temperature_edit"
-                            android:layout_width="wrap_content"
-                            android:layout_height="wrap_content"
-                            android:layout_marginStart="5dp"
-                            android:layout_marginTop="15dp"
-                            android:layout_marginEnd="5dp"
-                            android:layout_toRightOf="@id/thermometer"
-                            android:text="`F"
-                            android:textColor="@color/black"
-                            android:textSize="20sp"
-                            android:textStyle="bold" />
-
-                        <TextView
-                            android:id="@+id/temperature_constant"
-                            android:layout_width="wrap_content"
-                            android:layout_height="wrap_content"
-                            android:layout_alignBottom="@id/temperature_edit"
-                            android:layout_marginStart="75dp"
-                            android:layout_marginLeft="75dp"
-                            android:layout_marginTop="75dp"
-                            android:layout_marginEnd="5dp"
-                            android:layout_marginRight="5dp"
-                            android:layout_marginBottom="-18dp"
-                            android:text="Temperature" />
-
-                    </RelativeLayout>
-
-                </LinearLayout>
-
-                <LinearLayout
-                    android:layout_width="match_parent"
-                    android:layout_height="match_parent"
-                    android:layout_weight="1"
-                    android:orientation="vertical">
-
-                    <RelativeLayout
-                        android:layout_width="match_parent"
-                        android:layout_height="match_parent">
-
-                        <ImageView
-                            android:id="@+id/humidity"
-                            android:layout_width="50dp"
-                            android:layout_height="50dp"
-                            android:layout_marginStart="15dp"
-                            android:layout_marginLeft="10dp"
-                            android:layout_marginTop="15dp"
-                            android:layout_marginEnd="15dp"
-                            android:layout_marginRight="10dp"
-                            android:scaleType="centerInside"
-                            android:src="@drawable/hum" />
-
-                        <TextView
-                            android:id="@+id/humidity_edit"
-                            android:layout_width="wrap_content"
-                            android:layout_height="wrap_content"
-                            android:layout_marginStart="5dp"
-                            android:layout_marginTop="15dp"
-                            android:layout_marginEnd="5dp"
-                            android:layout_toRightOf="@id/humidity"
-                            android:text="69`F"
-                            android:textColor="@color/black"
-                            android:textSize="20sp"
-                            android:textStyle="bold" />
-
-                        <TextView
-                            android:id="@+id/humidity_constant"
-                            android:layout_width="wrap_content"
-                            android:layout_height="wrap_content"
-                            android:layout_alignBottom="@id/humidity_edit"
-                            android:layout_marginStart="75dp"
-                            android:layout_marginLeft="75dp"
-                            android:layout_marginTop="75dp"
-                            android:layout_marginEnd="5dp"
-                            android:layout_marginRight="5dp"
-                            android:layout_marginBottom="-18dp"
-                            android:text="Humidity" />
-
-                    </RelativeLayout>
-
-                </LinearLayout>
-
-
-            </LinearLayout>
-
-            <View
-                android:layout_width="match_parent"
-                android:layout_height="0.5dp"
-                android:layout_marginHorizontal="20dp"
-                android:background="@android:color/darker_gray" />
-
-            <LinearLayout
-                android:layout_width="match_parent"
-                android:layout_height="match_parent"
-                android:layout_weight="1"
-                android:orientation="horizontal">
-
-                <LinearLayout
-                    android:layout_width="match_parent"
-                    android:layout_height="match_parent"
-                    android:layout_weight="1"
-                    android:orientation="vertical">
-
-                    <RelativeLayout
-                        android:layout_width="match_parent"
-                        android:layout_height="match_parent">
-
-                        <ImageView
-                            android:id="@+id/rainfall"
-                            android:layout_width="50dp"
-                            android:layout_height="50dp"
-                            android:layout_marginStart="15dp"
-                            android:layout_marginLeft="10dp"
-                            android:layout_marginTop="15dp"
-                            android:layout_marginEnd="15dp"
-                            android:layout_marginRight="10dp"
-                            android:scaleType="centerInside"
-                            android:src="@drawable/rain"
-
-                            />
-
-                        <TextView
-                            android:id="@+id/rainfall_edit"
-                            android:layout_width="wrap_content"
-                            android:layout_height="wrap_content"
-                            android:layout_marginStart="5dp"
-                            android:layout_marginTop="15dp"
-                            android:layout_marginEnd="5dp"
-                            android:layout_toRightOf="@id/rainfall"
-                            android:text="69`F"
-                            android:textColor="@color/black"
-                            android:textSize="20sp"
-                            android:textStyle="bold" />
-
-                        <TextView
-                            android:id="@+id/rainfall_constant"
-                            android:layout_width="wrap_content"
-                            android:layout_height="wrap_content"
-                            android:layout_alignBottom="@id/rainfall_edit"
-                            android:layout_marginStart="75dp"
-                            android:layout_marginLeft="75dp"
-                            android:layout_marginTop="75dp"
-                            android:layout_marginEnd="5dp"
-                            android:layout_marginRight="5dp"
-                            android:layout_marginBottom="-18dp"
-                            android:text="Rainfall" />
-
-
-                    </RelativeLayout>
-
-
-                </LinearLayout>
-
-                <LinearLayout
-                    android:layout_width="match_parent"
-                    android:layout_height="match_parent"
-                    android:layout_weight="1"
-                    android:orientation="vertical">
-
-                    <RelativeLayout
-                        android:layout_width="match_parent"
-                        android:layout_height="match_parent">
-
-                        <ImageView
-                            android:id="@+id/windSpeed"
-                            android:layout_width="50dp"
-                            android:layout_height="50dp"
-                            android:layout_marginStart="15dp"
-                            android:layout_marginLeft="10dp"
-                            android:layout_marginTop="15dp"
-                            android:layout_marginEnd="15dp"
-                            android:layout_marginRight="10dp"
-                            android:scaleType="centerInside"
-                            android:src="@drawable/wind" />
-
-                        <TextView
-                            android:id="@+id/windSpeed_edit"
-                            android:layout_width="wrap_content"
-                            android:layout_height="wrap_content"
-                            android:layout_marginStart="5dp"
-                            android:layout_marginTop="15dp"
-                            android:layout_marginEnd="5dp"
-                            android:layout_toRightOf="@id/windSpeed"
-                            android:text="69`F"
-                            android:textColor="@color/black"
-                            android:textSize="20sp"
-                            android:textStyle="bold" />
-
-                        <TextView
-                            android:id="@+id/windSpeed_constant"
-                            android:layout_width="wrap_content"
-                            android:layout_height="wrap_content"
-                            android:layout_alignBottom="@id/windSpeed_edit"
-                            android:layout_marginStart="75dp"
-                            android:layout_marginLeft="75dp"
-                            android:layout_marginTop="75dp"
-                            android:layout_marginEnd="5dp"
-                            android:layout_marginRight="5dp"
-                            android:layout_marginBottom="-18dp"
-                            android:text="Windspeed" />
-
-
-                    </RelativeLayout>
-                </LinearLayout>
-
-            </LinearLayout>
-
-        </LinearLayout>
-
-        <LinearLayout
-            android:id="@+id/diagonize"
-            android:layout_width="350dp"
-            android:layout_height="60dp"
-            android:layout_below="@id/linear_overlay"
-            android:layout_marginHorizontal="25dp"
-            android:layout_marginTop="20dp"
-            android:background="#36D083"
-            android:elevation="2dp"
-            android:orientation="horizontal">
-
-            <TextView
-                android:id="@+id/list_crops"
-                style="@style/front_of_text"
-                android:layout_width="300dp"
-                android:layout_height="wrap_content"
-                android:layout_gravity="center_vertical"
-                android:text="View all available plants options"
-                android:textColor="@color/white"
-                android:textSize="15dp" />
-        </LinearLayout>
-
-    </RelativeLayout>
-
-    <ScrollView
-        android:id="@+id/scroll_view"
-        android:layout_width="match_parent"
-        android:layout_height="match_parent"
-        android:layout_below="@+id/relative2">
-
-        <RelativeLayout
-            android:id="@+id/rela_scroll"
+            android:id="@+id/linear1"
             android:layout_width="match_parent"
-            android:layout_height="130dp">
+            android:layout_height="200dp"
+            android:background="#36D083"
+            android:orientation="vertical">
+        </LinearLayout>
+
+        <LinearLayout
+            android:id="@+id/linear2"
+            android:layout_width="match_parent"
+            android:layout_height="100dp"
+            android:gravity="center|left"
+            android:orientation="vertical">
 
             <TextView
-                android:id="@+id/ornamental_gallery"
+                android:id="@+id/welcome_text"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:text="Ornamental Gallery"
-                android:layout_marginTop="15dp"
-                android:layout_marginStart="20dp"
-                android:layout_marginEnd="20dp"
-                android:textStyle="bold"
-                android:textSize="23dp"
+                android:layout_marginStart="18dp"
+                android:layout_marginTop="10dp"
+                android:layout_marginLeft="15dp"
+                android:fontFamily="@font/open_sans_semibold"
+                android:text="Hello"
                 android:textColor="@color/black"
-                android:layout_marginLeft="5dp" />
-            <ScrollView
-                android:id="@+id/scroll_gallery"
-                android:layout_width="match_parent"
-                android:layout_height="match_parent"
-                android:layout_below="@+id/ornamental_gallery"/>
+                android:textSize="20sp" />
+
+            <TextView
+                android:id="@+id/day_time"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="18dp"
+                android:layout_marginLeft="15dp"
+                android:layout_marginTop="2dp"
+                android:layout_marginBottom="2dp"
+                android:fontFamily="sans-serif-thin"
+                android:text="its bright and sunny"
+                android:textColor="@color/black"
+                android:textSize="20sp"
+                android:textStyle="bold">
+
+            </TextView>
+
+        </LinearLayout>
 
 
+        <RelativeLayout
+            android:id="@+id/relative2"
+            android:layout_width="match_parent"
+            android:layout_height="289dp"
+            android:layout_below="@id/linear1"
+            android:layout_marginTop="-90dp">
+
+            <LinearLayout
+                android:id="@+id/linear_overlay"
+                android:layout_width="340dp"
+                android:layout_height="176dp"
+                android:layout_marginStart="30dp"
+                android:layout_marginLeft="30dp"
+                android:layout_marginTop="35dp"
+                android:layout_marginEnd="30dp"
+                android:layout_marginRight="30dp"
+                android:background="@android:color/white"
+                android:elevation="2dp"
+                android:orientation="vertical"
+                tools:ignore="NotSibling">
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:layout_weight="1"
+                    android:orientation="horizontal">
+
+                    <LinearLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="match_parent"
+                        android:layout_weight="1"
+                        android:orientation="vertical">
+
+                        <RelativeLayout
+                            android:layout_width="match_parent"
+                            android:layout_height="match_parent">
+
+                            <ImageView
+                                android:id="@+id/thermometer"
+                                android:layout_width="50dp"
+                                android:layout_height="50dp"
+                                android:layout_marginStart="15dp"
+                                android:layout_marginLeft="10dp"
+                                android:layout_marginTop="15dp"
+                                android:layout_marginEnd="15dp"
+                                android:layout_marginRight="10dp"
+                                android:scaleType="centerInside"
+                                android:src="@drawable/thermometer" />
+
+                            <TextView
+                                android:id="@+id/temperature_edit"
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:maxLines="1"
+                                android:layout_marginStart="5dp"
+                                android:layout_marginTop="15dp"
+                                android:layout_marginEnd="5dp"
+                                android:layout_toRightOf="@id/thermometer"
+                                android:text=" F"
+                                android:textColor="@color/black"
+                                android:textSize="20sp"
+                                android:textStyle="bold" />
+
+                            <TextView
+                                android:id="@+id/temperature_constant"
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:layout_below="@+id/temperature_edit"
+                                android:layout_marginStart="74dp"
+                                android:layout_marginLeft="75dp"
+                                android:layout_marginTop="0dp"
+                                android:layout_marginEnd="3dp"
+                                android:layout_marginRight="5dp"
+                                android:layout_marginBottom="-18dp"
+                                android:text="Temperature" />
+
+                        </RelativeLayout>
+
+                    </LinearLayout>
+
+                    <LinearLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="match_parent"
+                        android:layout_weight="1"
+                        android:orientation="vertical">
+
+                        <RelativeLayout
+                            android:layout_width="match_parent"
+                            android:layout_height="match_parent">
+
+                            <ImageView
+                                android:id="@+id/humidity"
+                                android:layout_width="50dp"
+                                android:layout_height="50dp"
+                                android:layout_marginStart="15dp"
+                                android:layout_marginLeft="10dp"
+                                android:layout_marginTop="15dp"
+                                android:layout_marginEnd="15dp"
+                                android:layout_marginRight="10dp"
+                                android:scaleType="centerInside"
+                                android:src="@drawable/hum" />
+
+                            <TextView
+                                android:id="@+id/humidity_edit"
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:layout_marginStart="5dp"
+                                android:layout_marginTop="15dp"
+                                android:layout_marginEnd="5dp"
+                                android:layout_toRightOf="@id/humidity"
+                                android:text=" "
+                                android:textColor="@color/black"
+                                android:textSize="20sp"
+                                android:textStyle="bold" />
+
+                            <TextView
+                                android:id="@+id/humidity_constant"
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:layout_alignBottom="@id/humidity_edit"
+                                android:layout_marginStart="75dp"
+                                android:layout_marginLeft="75dp"
+                                android:layout_marginTop="75dp"
+                                android:layout_marginEnd="5dp"
+                                android:layout_marginRight="5dp"
+                                android:layout_marginBottom="-18dp"
+                                android:text="Humidity" />
+
+                        </RelativeLayout>
+
+                    </LinearLayout>
+
+
+                </LinearLayout>
+
+                <View
+                    android:layout_width="match_parent"
+                    android:layout_height="0.5dp"
+                    android:layout_marginHorizontal="20dp"
+                    android:background="@android:color/darker_gray" />
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:layout_weight="1"
+                    android:orientation="horizontal">
+
+                    <LinearLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="match_parent"
+                        android:layout_weight="1"
+                        android:orientation="vertical">
+
+                        <RelativeLayout
+                            android:layout_width="match_parent"
+                            android:layout_height="match_parent">
+
+                            <ImageView
+                                android:id="@+id/rainfall"
+                                android:layout_width="50dp"
+                                android:layout_height="50dp"
+                                android:layout_marginStart="15dp"
+                                android:layout_marginLeft="10dp"
+                                android:layout_marginTop="15dp"
+                                android:layout_marginEnd="15dp"
+                                android:layout_marginRight="10dp"
+                                android:scaleType="centerInside"
+                                android:src="@drawable/pressure"
+
+                                />
+
+                            <TextView
+                                android:id="@+id/rainfall_edit"
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:layout_marginStart="5dp"
+                                android:layout_marginTop="15dp"
+                                android:layout_marginEnd="5dp"
+                                android:layout_toRightOf="@id/rainfall"
+                                android:text=" "
+                                android:textColor="@color/black"
+                                android:textSize="20sp"
+                                android:textStyle="bold" />
+
+                            <TextView
+                                android:id="@+id/rainfall_constant"
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:layout_alignBottom="@id/rainfall_edit"
+                                android:layout_marginStart="75dp"
+                                android:layout_marginLeft="75dp"
+                                android:layout_marginTop="75dp"
+                                android:layout_marginEnd="5dp"
+                                android:layout_marginRight="5dp"
+                                android:layout_marginBottom="-18dp"
+                                android:text="Pressure" />
+
+
+
+                        </RelativeLayout>
+
+
+                    </LinearLayout>
+
+                    <LinearLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="match_parent"
+                        android:layout_weight="1"
+                        android:orientation="vertical">
+
+                        <RelativeLayout
+                            android:layout_width="match_parent"
+                            android:layout_height="match_parent">
+
+                            <ImageView
+                                android:id="@+id/windSpeed"
+                                android:layout_width="50dp"
+                                android:layout_height="50dp"
+                                android:layout_marginStart="15dp"
+                                android:layout_marginLeft="10dp"
+                                android:layout_marginTop="15dp"
+                                android:layout_marginEnd="15dp"
+                                android:layout_marginRight="10dp"
+                                android:scaleType="centerInside"
+                                android:src="@drawable/wind" />
+
+                            <TextView
+                                android:id="@+id/windSpeed_edit"
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:layout_marginStart="5dp"
+                                android:layout_marginTop="15dp"
+                                android:layout_marginEnd="5dp"
+                                android:layout_toRightOf="@id/windSpeed"
+                                android:text=" "
+                                android:textColor="@color/black"
+                                android:textSize="20sp"
+                                android:textStyle="bold" />
+
+                            <TextView
+                                android:id="@+id/windSpeed_const"
+                                android:layout_width="match_parent"
+                                android:layout_height="wrap_content"
+                                android:layout_below="@id/windSpeed_edit"
+                                android:layout_marginStart="74dp"
+                                android:layout_marginLeft="75dp"
+                                android:layout_marginTop="5dp"
+                                android:textSize="15sp"
+                                android:layout_marginEnd="5dp"
+                                android:layout_marginRight="5dp"
+                                android:layout_marginBottom="-18dp"
+                                android:text="Windspeed" />
+
+
+                        </RelativeLayout>
+                    </LinearLayout>
+
+                </LinearLayout>
+
+
+            </LinearLayout>
+
+            <LinearLayout
+                android:id="@+id/diagonize"
+                android:layout_width="350dp"
+                android:layout_height="60dp"
+                android:layout_below="@id/linear_overlay"
+                android:layout_marginHorizontal="25dp"
+                android:layout_marginTop="20dp"
+                android:background="#36D083"
+                android:elevation="2dp"
+                android:orientation="horizontal">
+
+                <TextView
+                    android:onClick="BestTree"
+                    android:id="@+id/list_crops"
+                    style="@style/front_of_text"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_gravity="center_vertical"
+                    android:text="      Get Best Tree Prediction    "
+                    android:textColor="@color/white"
+                    android:textSize="20sp" />
+            </LinearLayout>
 
         </RelativeLayout>
 
-    </ScrollView>
+        <RelativeLayout
+            android:id="@+id/scroll_view"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:layout_below="@+id/relative2">
+
+            <RelativeLayout
+                android:id="@+id/rela_scroll"
+                android:layout_width="match_parent"
+                android:layout_height="150dp">
+
+                <TextView
+                    android:id="@+id/ornamental_gallery"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="Ornamental Gallery"
+                    android:layout_marginTop="20dp"
+                    android:layout_marginBottom="5dp"
+                    android:layout_marginStart="20dp"
+                    android:layout_marginEnd="20dp"
+                    android:textStyle="bold"
+                    android:textSize="24dp"
+                    android:textColor="@color/black"
+                    android:layout_marginLeft="5dp" />
+                <TableLayout
+                    android:layout_marginStart="20dp"
+                    android:layout_below="@+id/ornamental_gallery"
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:orientation="vertical"
+                    android:layout_marginLeft="20dp">
+
+                    <HorizontalScrollView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content">
+
+                        <TableRow
+                            android:id="@+id/lay1"
+                            android:layout_width="wrap_content"
+                            android:layout_height="match_parent">
+
+                            <ImageView
+                                android:layout_width="120dp"
+                                android:layout_height="wrap_content"
+                                android:src="@drawable/img2"
+                                android:scaleType="center"
+                                android:layout_marginRight="10dp">
+                            </ImageView>
+                            <ImageView
+                                android:layout_width="120dp"
+                                android:layout_height="wrap_content"
+                                android:src="@drawable/img3"
+                                android:scaleType="center"
+                                android:layout_marginRight="10dp">
+                            </ImageView>
+                            <ImageView
+                                android:layout_width="120dp"
+                                android:layout_height="wrap_content"
+                                android:src="@drawable/img4"
+                                android:scaleType="center"
+                                android:layout_marginRight="10dp">
+                            </ImageView>
+                            <ImageView
+                                android:layout_width="120dp"
+                                android:layout_height="wrap_content"
+                                android:src="@drawable/img5"
+                                android:scaleType="center"
+                                android:layout_marginRight="10dp">
+                            </ImageView>
+                            <ImageView
+                                android:layout_width="120dp"
+                                android:layout_height="wrap_content"
+                                android:src="@drawable/highbiscus"
+                                android:scaleType="center"
+                                android:layout_marginRight="10dp">
+                            </ImageView>
+                            <ImageView
+                                android:layout_width="120dp"
+                                android:layout_height="wrap_content"
+                                android:src="@drawable/img6"
+                                android:scaleType="center"
+                                android:layout_marginRight="10dp">
+                            </ImageView>
+
+                        </TableRow>
+
+                    </HorizontalScrollView>
 
 
 
 
-</RelativeLayout>
+
+                </TableLayout>
+
+
+
+
+
+            </RelativeLayout>
+
+            <RelativeLayout
+                android:id="@+id/relative3"
+                android:layout_width="match_parent"
+                android:layout_height="150dp"
+                android:layout_below="@id/rela_scroll">
+
+                <TextView
+                    android:id="@+id/plant_text"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text=" Discover Trees To Plant "
+                    android:textStyle="bold"
+                    android:layout_marginTop="22dp"
+                    android:layout_marginBottom="10dp"
+                    android:layout_marginStart="20dp"
+                    android:layout_marginEnd="20dp"
+                    android:textSize="15sp"
+                    android:textColor="@color/black"
+                    android:layout_marginLeft="5dp" />
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:orientation="vertical">
+
+
+                </LinearLayout>
+
+                <HorizontalScrollView
+                    android:layout_below="@+id/plant_text"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content">
+
+                    <TableLayout
+                        android:id="@+id/plant_horizontal"
+                        android:layout_width="match_parent"
+                        android:layout_height="match_parent"
+                        android:scrollbars="horizontal"
+                        android:orientation="vertical"
+                        android:layout_below="@id/plant_text">
+
+                        <TableRow
+                            android:layout_height="wrap_content"
+                            android:layout_width="match_parent">
+
+                            <LinearLayout
+                                android:id="@+id/plant_layout"
+                                android:layout_width="wrap_content"
+                                android:layout_height="90dp"
+                                android:layout_below="@+id/plant_text"
+                                android:orientation="horizontal"
+                                android:layout_marginStart="10dp"
+                                android:layout_marginLeft="10dp"
+                                android:elevation="10dp">
+
+                                <ImageView
+                                    android:id="@+id/plant_tree_1"
+                                    android:layout_marginStart="15dp"
+                                    android:layout_width="90dp"
+                                    android:layout_height="70dp"
+                                    android:layout_marginTop="10dp"
+                                    android:layout_marginBottom="10dp"
+                                    android:layout_marginLeft="15dp"
+                                    android:src="@drawable/polylongi"
+                                    android:scaleType="fitXY"/>
+
+                                <LinearLayout
+                                    android:onClick="PolyView"
+                                    android:layout_width="wrap_content"
+                                    android:layout_height="match_parent"
+                                    android:orientation="vertical">
+
+                                    <TextView
+                                        android:id="@+id/text_plant_1"
+                                        android:layout_width="wrap_content"
+                                        android:layout_height="wrap_content"
+                                        android:layout_marginStart="20dp"
+                                        android:layout_marginLeft="10dp"
+                                        android:layout_marginTop="10dp"
+                                        android:text="Polyalthea longifolia"
+                                        android:textColor="@color/black"
+                                        android:textSize="10sp"
+                                        android:textStyle="bold" />
+
+                                    <TextView
+                                        android:id="@+id/plant_tree1"
+                                        android:layout_width="170dp"
+                                        android:layout_height="wrap_content"
+                                        android:layout_marginTop="5dp"
+                                        android:layout_marginBottom="-12dp"
+                                        android:ellipsize="end"
+                                        android:maxLines="2"
+                                        android:paddingLeft="12dp"
+                                        android:text="@string/poly_desc"
+                                        android:textColor="#121212" />
+
+
+                                </LinearLayout>
+
+
+                            </LinearLayout>
+
+                            <LinearLayout
+                                android:id="@+id/plant_layout_2"
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:layout_below="@+id/plant_text"
+                                android:orientation="horizontal"
+                                android:layout_marginStart="20dp"
+                                android:layout_marginLeft="20dp"
+                                android:elevation="10dp">
+
+                                <ImageView
+                                    android:id="@+id/plant_tree_2"
+                                    android:layout_marginStart="15dp"
+                                    android:layout_width="90dp"
+                                    android:layout_height="70dp"
+                                    android:layout_marginTop="10dp"
+                                    android:layout_marginBottom="10dp"
+                                    android:layout_marginLeft="15dp"
+                                    android:src="@drawable/cassia"
+                                    android:scaleType="fitXY"/>
+
+                                <LinearLayout
+                                    android:onClick="CassiaView"
+                                    android:layout_width="wrap_content"
+                                    android:layout_height="match_parent"
+                                    android:orientation="vertical">
+
+                                    <TextView
+                                        android:id="@+id/text_plant_2"
+                                        android:layout_width="wrap_content"
+                                        android:layout_height="wrap_content"
+                                        android:layout_marginStart="20dp"
+                                        android:layout_marginLeft="10dp"
+                                        android:layout_marginTop="10dp"
+                                        android:text="Cassia fistula"
+                                        android:textColor="@color/black"
+                                        android:textSize="20sp"
+                                        android:textStyle="bold" />
+
+                                    <TextView
+                                        android:id="@+id/plant_tree2"
+                                        android:layout_width="170dp"
+                                        android:layout_height="wrap_content"
+                                        android:layout_marginTop="5dp"
+                                        android:layout_marginBottom="-12dp"
+                                        android:ellipsize="end"
+                                        android:maxLines="2"
+                                        android:paddingLeft="12dp"
+                                        android:text="@string/cassia_desc"
+                                        android:textColor="#121212" />
+
+
+                                </LinearLayout>
+
+
+                            </LinearLayout>
+
+                        </TableRow>
+
+
+
+
+                    </TableLayout>
+                </HorizontalScrollView>
+
+            </RelativeLayout>
+        </RelativeLayout>
+
+    </RelativeLayout>
+
+
+
+
+</ScrollView>

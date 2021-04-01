@@ -1,49 +1,68 @@
 <?xml version="1.0" encoding="utf-8"?>
-<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<androidx.cardview.widget.CardView
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
     android:layout_width="match_parent"
     android:layout_height="wrap_content"
-    xmlns:app="http://schemas.android.com/apk/res-auto"
-   >
+    android:layout_margin="5dp"
+    app:cardBackgroundColor="@color/white"
+    app:cardCornerRadius="8dp"
+    app:cardElevation="8dp"
+    app:cardMaxElevation="10dp"
+    app:cardPreventCornerOverlap="true"
+    app:cardUseCompatPadding="true">
+
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content">
 
 
-   <androidx.cardview.widget.CardView
-       android:layout_width="match_parent"
-       android:layout_height="100dp">
+        <ImageView
+            android:id="@+id/StateIcon"
+            android:layout_width="50dp"
+            android:layout_height="80dp"
+            android:layout_margin="10dp"
+            android:contentDescription="@string/app_name"
+            android:padding="5dp"
+            android:src="@drawable/edenlogo" />
 
-       <TextView
+
+
+        <TextView
            android:id="@+id/crop_name"
-           android:layout_width="match_parent"
-           android:layout_height="wrap_content"
-           android:layout_alignParentTop="true"
-           android:layout_marginLeft="20dp"
-           android:layout_marginTop="20dp"
-           android:layout_marginRight="20dp"
-          
-           android:text="crop Name"
-           android:textColor="#555555"
-           android:textSize="16sp" />
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="10dp"
+            android:layout_marginLeft="10dp"
+            android:layout_marginTop="10dp"
+            android:layout_toEndOf="@+id/StateIcon"
+            android:layout_toRightOf="@+id/StateIcon"
+            android:text="Crop Name"
+            android:textColor="@color/black"
+            android:textSize="18sp"
+            android:textStyle="bold" />
 
        <TextView
            android:id="@+id/Botanical"
-           android:layout_width="wrap_content"
+           android:layout_width="match_parent"
            android:layout_height="wrap_content"
            android:layout_below="@+id/crop_name"
-           android:layout_marginLeft="20dp"
-           android:layout_marginTop="50dp"
-           android:layout_marginRight="30dp"
+           android:layout_marginStart="10dp"
+           android:layout_marginTop="20dp"
+           android:layout_toEndOf="@+id/StateIcon"
+           android:drawablePadding="2dp"
+           android:text="Botanical Name"
+           android:layout_marginLeft="10dp"
+           android:layout_toRightOf="@+id/StateIcon" />
 
-           android:text="botanical Name"
-           android:textColor="#999999"
-           android:textSize="14sp" />
-
-
+    </RelativeLayout>
 
    </androidx.cardview.widget.CardView>
 
 
 
 
-    </RelativeLayout>
+
 
 
 

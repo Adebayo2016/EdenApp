@@ -6,6 +6,12 @@ import java.util.Map;
 public class States {
     private static Map<String, String> statesDictionary = new HashMap<String, String>();
 
+    public States(String stateName, String foretType) {
+
+
+    }
+
+
     public static String getForestType(String state) {
 
         //put all states and their forest type here

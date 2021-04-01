@@ -7,6 +7,9 @@ public class OrnamentalModel {
     public String OrnamentalImageUrl;
     public  String OrnamentalDesc;
 
+
+    //To be Used In Firestore
+
     private OrnamentalModel(){
 
     }

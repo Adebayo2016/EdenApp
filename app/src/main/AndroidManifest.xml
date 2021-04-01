@@ -22,6 +22,14 @@
 
         <activity android:name=".HomePage" >
 
+
+        </activity>
+        <activity android:name=".Authentication.SignUp" >
+
+
+        </activity>
+        <activity android:name=".SplashScreen" >
+
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
 
@@ -29,6 +37,12 @@
             </intent-filter>
 
         </activity>
+        <activity android:name=".Authentication.Sign_in" />
+        <activity android:name=".CropsActivity" />
+        <activity android:name=".StateActivity" >
+
+        </activity>
+        <activity android:name=".SelectionAlgo.Result" />
 
 
     </application>

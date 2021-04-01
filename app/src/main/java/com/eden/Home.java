@@ -6,6 +6,8 @@ import android.view.View;
 
 import androidx.appcompat.app.AppCompatActivity;
 
+import com.eden.Authentication.SignUp;
+
 public class Home extends AppCompatActivity {
 
     @Override
@@ -16,7 +18,7 @@ public class Home extends AppCompatActivity {
     }
 
     public void best_tree(View view) {
-        Intent i= new Intent (this, sign_up.class);
+        Intent i= new Intent (this, SignUp.class);
         startActivity(i);
 
 

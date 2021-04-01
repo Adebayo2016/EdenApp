@@ -1,15 +1,18 @@
-package com.eden;
+package com.eden.Authentication;
 
 import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;
 
+import android.app.ProgressDialog;
 import android.content.Intent;
 import android.os.Bundle;
 import android.view.View;
 import android.widget.EditText;
 import android.widget.Toast;
 
+import com.eden.HomePage;
 import com.eden.Models.User;
+import com.eden.R;
 import com.google.android.gms.tasks.OnCompleteListener;
 import com.google.android.gms.tasks.Task;
 import com.google.firebase.FirebaseApp;
@@ -28,9 +31,9 @@ public class SignUp extends AppCompatActivity {
     public EditText username;
     public EditText confirm;
     public String full_name;
-    public  String user_mail;
-    public  String user_pass;
-    public String   confirm_pass;
+    public String user_mail;
+    public String user_pass;
+    public String confirm_pass;
     DatabaseReference mDatabase;
     String emailPattern = "[a-zA-Z0-9._-]+@[a-z]+\\.+[a-z]+";
 
@@ -41,41 +44,39 @@ public class SignUp extends AppCompatActivity {
         setContentView(R.layout.activity_sign_up);
         FirebaseApp.initializeApp(this);
 
-        mAuth=FirebaseAuth.getInstance();
+        mAuth = FirebaseAuth.getInstance();
         mDatabase = FirebaseDatabase.getInstance().getReference().child("users");
-        email=findViewById(R.id.email_reg);
-        password=findViewById(R.id.password_reg);
-        username=findViewById(R.id.name_reg);
-        confirm=findViewById(R.id.confirm_password_reg);
+        email = findViewById(R.id.email_reg);
+        password = findViewById(R.id.password_reg);
+        username = findViewById(R.id.name_reg);
+        confirm = findViewById(R.id.confirm_password_reg);
 
     }
 
     public void Register(View view) {
 
-        full_name=username.getText().toString();
-        user_mail=email.getText().toString().trim();
-        user_pass=password.getText().toString();
-        confirm_pass=confirm.getText().toString();
+        full_name = username.getText().toString();
+        user_mail = email.getText().toString().trim();
+        user_pass = password.getText().toString();
+        confirm_pass = confirm.getText().toString();
 
-
-        if(full_name.isEmpty()){
+        if (full_name.isEmpty()) {
             username.requestFocus();
             username.setError("please enter your full name");
             return;
 
         }
-
-        if (user_mail.isEmpty()){
+        if (user_mail.isEmpty()) {
             email.requestFocus();
             email.setError("please enter your mail");
             return;
 
         }
 
-        if(user_mail.matches(emailPattern)){
+        if (user_mail.matches(emailPattern)) {
 
 
-        }else {
+        } else {
 
             email.requestFocus();
             email.setError("please enter valid mail");
@@ -83,7 +84,7 @@ public class SignUp extends AppCompatActivity {
         }
 
 
-        if(user_pass.isEmpty()){
+        if (user_pass.isEmpty()) {
 
             password.requestFocus();
             password.setError("please enter a password");
@@ -91,21 +92,23 @@ public class SignUp extends AppCompatActivity {
 
         }
 
-        if(!confirm_pass.equals(user_pass)){
+        if (!confirm_pass.equals(user_pass)) {
             confirm.requestFocus();
             confirm.setError("passwords do no match");
         }
 
 
-        mAuth.createUserWithEmailAndPassword(user_mail,user_pass).addOnCompleteListener(new OnCompleteListener<AuthResult>() {
+        final ProgressDialog progressDialog = new ProgressDialog(this);
+        progressDialog.setTitle("Loading...");
+        progressDialog.show();
+
+        mAuth.createUserWithEmailAndPassword(user_mail, user_pass).addOnCompleteListener(new OnCompleteListener<AuthResult>() {
             @Override
             public void onComplete(@NonNull Task<AuthResult> task) {
 
+                if (task.isSuccessful()) {
 
-
-                if (task.isSuccessful()){
-
-                    User user = new User(full_name,user_mail);
+                    User user = new User(full_name, user_mail);
 
                     FirebaseDatabase.getInstance().getReference("Users").child(Objects.requireNonNull(Objects.requireNonNull(FirebaseAuth.getInstance()
                             .getCurrentUser())).getUid()).setValue(user).addOnCompleteListener(new OnCompleteListener<Void>() {
@@ -113,7 +116,7 @@ public class SignUp extends AppCompatActivity {
                         public void onComplete(Task<Void> task) {
 
                             if (task.isSuccessful()) {
-                               // progressDialog.dismiss();
+                                progressDialog.dismiss();
                                 GoToHomePage();
 
                             } else {
@@ -124,25 +127,27 @@ public class SignUp extends AppCompatActivity {
 
                         }
 
-
                     });
 
-
-
-
-                }else {
-                    Toast.makeText(getApplicationContext(), task.getException().getMessage(),Toast.LENGTH_LONG).show();
+                } else {
+                    Toast.makeText(getApplicationContext(), task.getException().getMessage(), Toast.LENGTH_LONG).show();
 
                 }
-        }
-    });
+            }
+        });
 
-
-}
+    }
 
     private void GoToHomePage() {
 
         Intent intent = new Intent(getApplicationContext(), HomePage.class);
+        startActivity(intent);
+        finish();
+    }
+
+    public void Login(View view) {
+
+        Intent intent = new Intent(getApplicationContext(), Sign_in.class);
         startActivity(intent);
         finish();
     }
