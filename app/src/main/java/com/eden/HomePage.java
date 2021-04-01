@@ -261,7 +261,11 @@ public class HomePage extends AppCompatActivity {
         intent2.putExtra("send", "cassia.pdf");
         startActivityForResult(intent2,0);
     }
+
+    public void TreeDetail(View view) {
+        Toast.makeText(this, "Detail Coming Soon", Toast.LENGTH_SHORT).show();
     }
+}
 
 
 

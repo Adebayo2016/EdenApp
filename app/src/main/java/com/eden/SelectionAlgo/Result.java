@@ -4,6 +4,7 @@ import android.content.Context;
 import android.content.Intent;
 import android.content.SharedPreferences;
 import android.os.Bundle;
+import android.view.View;
 import android.widget.TextView;
 import android.widget.Toast;
 
@@ -92,6 +93,11 @@ public class Result extends AppCompatActivity {
         }
 
 
+    }
+
+    public void BestTree(View view) {
+
+        Toast.makeText(this, "Coming Soon",Toast.LENGTH_SHORT).show();
     }
 }
 
