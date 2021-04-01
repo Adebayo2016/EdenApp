@@ -13,12 +13,15 @@
     </com.github.barteksc.pdfviewer.PDFView>
 
     <Button
+        android:onClick="GetTree"
         android:layout_centerInParent="true"
         android:layout_alignParentBottom="true"
         android:layout_width="wrap_content"
         android:text="get this tree "
         android:textColor="@color/black"
         android:layout_height="wrap_content"
+        android:background="@color/white"
+
         />
 
 </RelativeLayout>

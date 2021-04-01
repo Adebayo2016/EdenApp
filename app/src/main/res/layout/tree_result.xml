@@ -19,7 +19,7 @@
             android:padding="0dp"
             android:layout_width="match_parent"
             android:layout_height="match_parent"
-            android:src="@drawable/f1" />
+            android:src="@drawable/edenlogo" />
 
 
 </androidx.cardview.widget.CardView>
@@ -156,9 +156,12 @@
 
 
     <Button
+        android:onClick="BestTree"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:text="Get This Tree"
+        android:textColor="@color/black"
+        android:background="@color/white"
 
         />
 </LinearLayout>

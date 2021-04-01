@@ -2,6 +2,8 @@ package com.eden;
 
 import android.content.Intent;
 import android.os.Bundle;
+import android.view.View;
+import android.widget.Toast;
 
 import androidx.appcompat.app.AppCompatActivity;
 
@@ -23,5 +25,10 @@ public class OrnamentalCropView extends AppCompatActivity {
         pdf = (PDFView)findViewById(R.id.pdf);
         pdf.fromAsset(receiving).load();
 
+    }
+
+    public void GetTree(View view) {
+
+        Toast.makeText(this, "Coming Soon", Toast.LENGTH_SHORT).show();
     }
 }
