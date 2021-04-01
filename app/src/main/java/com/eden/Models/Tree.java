@@ -4,7 +4,7 @@ import java.util.ArrayList;
 import java.util.List;
 
 
-public class Tree {
+public class  Tree {
     public String name;
     public Double Erosion_Reduction;
     public Double Fertility_Improvement;

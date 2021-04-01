@@ -26,9 +26,14 @@ import androidx.core.content.ContextCompat;
 
 import com.eden.SelectionAlgo.Result;
 import com.eden.WeatherUpdate.WeatherService;
+import com.google.firebase.FirebaseApp;
 import com.google.firebase.auth.FirebaseAuth;
+import com.google.firebase.auth.FirebaseUser;
+import com.google.firebase.database.DataSnapshot;
+import com.google.firebase.database.DatabaseError;
 import com.google.firebase.database.DatabaseReference;
 import com.google.firebase.database.FirebaseDatabase;
+import com.google.firebase.database.ValueEventListener;
 
 import org.jetbrains.annotations.NotNull;
 import org.json.JSONArray;
@@ -52,7 +57,6 @@ import static androidx.constraintlayout.motion.widget.Debug.getLocation;
 
 public class HomePage extends AppCompatActivity {
     FirebaseDatabase mDatabase;
-    DatabaseReference databaseUser;
     FirebaseAuth mAuth;
     private static final int REQUEST_LOCATION = 1;
     TextView user_text, day_time, temperature, humidity, pressure, windspeed;
@@ -74,6 +78,12 @@ public class HomePage extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_home);
+        FirebaseApp.initializeApp(this);
+
+        mAuth=FirebaseAuth.getInstance();
+
+        mDatabase=FirebaseDatabase.getInstance();
+
         temperature = findViewById(R.id.temperature_edit);
         humidity = findViewById(R.id.humidity_edit);
         pressure = findViewById(R.id.rainfall_edit);
@@ -90,11 +100,9 @@ public class HomePage extends AppCompatActivity {
             getCurrentLocation();
         }
 
-        // mDatabase=FirebaseDatabase.getInstance();
-        // mAuth=FirebaseAuth.getInstance();
-        // databaseUser= mDatabase.getReference("Users");
-//        String id = mAuth.getCurrentUser().getUid();
-        //DatabaseReference userName=databaseUser.child(id).child("user_emil");
+
+
+
         getCurrentLocation();
 
         try {
@@ -103,7 +111,32 @@ public class HomePage extends AppCompatActivity {
             e.printStackTrace();
         }
 
-        //    getCurrentUser();
+        getCurrentUserName();
+
+
+    }
+
+    private void getCurrentUserName() {
+
+        FirebaseUser user = FirebaseAuth.getInstance().getCurrentUser();
+        String userid = user.getUid();
+
+        DatabaseReference ref = FirebaseDatabase.getInstance().getReference("Users");
+        ref.child(userid).addListenerForSingleValueEvent(new ValueEventListener() {
+            @Override
+            public void onDataChange(@NonNull DataSnapshot snapshot) {
+
+                String name = snapshot.child("full_name").getValue().toString();
+                user_text.setText( "Hello "+name);
+            }
+
+            @Override
+            public void onCancelled(@NonNull DatabaseError error) {
+
+
+            }
+        });
+
 
 
     }
@@ -213,6 +246,22 @@ public class HomePage extends AppCompatActivity {
         startActivity(TreeIntent);
     }
 
-}
+
+    //gets the value of our File
+    public void PolyView(View view) {
+
+        Intent intent2 = new Intent (this,OrnamentalCropView.class );
+        intent2.putExtra("send", "polyalthia.pdf");
+        startActivityForResult(intent2,0);
+    }
+
+    public void CassiaView(View view) {
+
+        Intent intent2 = new Intent (this,OrnamentalCropView.class );
+        intent2.putExtra("send", "cassia.pdf");
+        startActivityForResult(intent2,0);
+    }
+    }
+
 
 

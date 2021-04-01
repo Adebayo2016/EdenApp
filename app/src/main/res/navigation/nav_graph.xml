@@ -5,6 +5,6 @@
 
     <fragment
         android:id="@+id/authFragment"
-        android:name="com.eden.Ui.AuthFragment"
+        android:name="com.eden.Authentication.AuthFragment"
         android:label="AuthFragment" />
 </navigation>

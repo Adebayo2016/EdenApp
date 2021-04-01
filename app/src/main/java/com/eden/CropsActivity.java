@@ -52,11 +52,12 @@ public class CropsActivity extends AppCompatActivity {
         firebaseFirestore=FirebaseFirestore.getInstance();
         ArrayList<CropsModel> cropItem = new ArrayList<>();
 
-        cropItem.add(new CropsModel("Cocoa","bnn",3));
-        cropItem.add(new CropsModel("bnn","bnnn",3));
-        cropItem.add(new CropsModel("bnn","bnnn",3));
-        cropItem.add(new CropsModel("bnn","bnnn",3));
-        cropItem.add(new CropsModel("bnn","bnnn",3));
+        cropItem.add(new CropsModel("Cocoa","Theobroma Cacao",3));
+        cropItem.add(new CropsModel("Carrot","caucus carotasubsp Sativus",1));
+        cropItem.add(new CropsModel("Cashew","anacardium Occidentals",1));
+        cropItem.add(new CropsModel("Maize","Zea Mays",30));
+        cropItem.add(new CropsModel("Rice","Oryza Sativa",40));
+        //load more from Here after testing with Users
 
 
 
@@ -103,7 +104,7 @@ public class CropsActivity extends AppCompatActivity {
 
 
 
-
+//for fireStore Implementation
 
 
 

@@ -1,25 +1,50 @@
 <?xml version="1.0" encoding="utf-8"?>
 <manifest xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
     package="com.eden">
+
+    <uses-permission android:name="android.permission.ACCESS_FINE_LOCATION"/>
+    <uses-permission android:name="android.permission.ACCESS_COARSE_LOCATION"/>
+    <uses-permission android:name="android.permission.INTERNET"/>
 
     <application
         android:allowBackup="true"
+        android:usesCleartextTraffic="true"
         android:icon="@mipmap/ic_launcher"
         android:label="@string/app_name"
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
-        android:theme="@style/Theme.Eden">
+        android:theme="@style/Theme.Eden"
+        tools:targetApi="m">
         <activity android:name=".MainActivity">
 
         </activity>
-        <activity android:name=".Home"/>
-        <activity android:name=".SplashScreen">
+
+        <activity android:name=".HomePage" >
+
+
+        </activity>
+        <activity android:name=".Authentication.SignUp" >
+
+
+        </activity>
+        <activity android:name=".SplashScreen" >
+
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
 
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
+
         </activity>
+        <activity android:name=".Authentication.Sign_in" />
+        <activity android:name=".CropsActivity" />
+        <activity android:name=".StateActivity" >
+
+        </activity>
+        <activity android:name=".SelectionAlgo.Result" />
+
+
     </application>
 
 </manifest>
