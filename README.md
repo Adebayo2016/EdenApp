@@ -33,6 +33,8 @@ Using Sorting Algorithm , we select the Best tree that matches and Best fits for
 
 Eden Provides Information about ornamental Trees 
 
+
+
 .....................
 
 #Connecting Farmers and Individual to where to get Trees
@@ -47,6 +49,8 @@ Eden is looking forward to partner with Agricultural bodies (both Governmental a
  Eden gets its weather forecast Using the OpenWeatherMap API
 
 
+# Installation 
 
+Clone this repo 
 
 
