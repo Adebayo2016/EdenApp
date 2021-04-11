@@ -80,10 +80,8 @@ public class HomePage extends AppCompatActivity {
         setContentView(R.layout.activity_home);
         FirebaseApp.initializeApp(this);
 
-        mAuth=FirebaseAuth.getInstance();
-
-        mDatabase=FirebaseDatabase.getInstance();
-
+        mAuth = FirebaseAuth.getInstance();
+        mDatabase = FirebaseDatabase.getInstance();
         temperature = findViewById(R.id.temperature_edit);
         humidity = findViewById(R.id.humidity_edit);
         pressure = findViewById(R.id.rainfall_edit);
@@ -95,12 +93,10 @@ public class HomePage extends AppCompatActivity {
                 new String[]{Manifest.permission.ACCESS_FINE_LOCATION}, REQUEST_LOCATION);
         locationManager = (LocationManager) getSystemService(Context.LOCATION_SERVICE);
         if (!locationManager.isProviderEnabled(LocationManager.GPS_PROVIDER)) {
-            OnGPS();
+            //OnGPS();
         } else {
             getCurrentLocation();
         }
-
-
 
 
         getCurrentLocation();
@@ -127,7 +123,11 @@ public class HomePage extends AppCompatActivity {
             public void onDataChange(@NonNull DataSnapshot snapshot) {
 
                 String name = snapshot.child("full_name").getValue().toString();
-                user_text.setText( "Hello "+name);
+                if (name != null) {
+                    user_text.setText("Hello " + name);
+                }
+
+
             }
 
             @Override
@@ -138,12 +138,11 @@ public class HomePage extends AppCompatActivity {
         });
 
 
-
     }
 
     //to be used in next Update
 
-    private void OnGPS() {
+   /* private void OnGPS() {
 
         final AlertDialog.Builder builder = new AlertDialog.Builder(this);
         builder.setMessage("Enable GPS").setCancelable(false).setPositiveButton("Yes", new DialogInterface.OnClickListener() {
@@ -159,7 +158,7 @@ public class HomePage extends AppCompatActivity {
         });
         final AlertDialog alertDialog = builder.create();
         alertDialog.show();
-    }
+    } */
 
 
     private void getCurrentLocation() {
@@ -240,6 +239,7 @@ public class HomePage extends AppCompatActivity {
 
     }
 
+
     public void BestTree(View view) {
 
         Intent TreeIntent = new Intent(this, StateActivity.class);
@@ -250,20 +250,31 @@ public class HomePage extends AppCompatActivity {
     //gets the value of our File
     public void PolyView(View view) {
 
-        Intent intent2 = new Intent (this,OrnamentalCropView.class );
+        Intent intent2 = new Intent(this, OrnamentalCropView.class);
         intent2.putExtra("send", "polyalthia.pdf");
-        startActivityForResult(intent2,0);
+        startActivityForResult(intent2, 0);
     }
 
     public void CassiaView(View view) {
 
-        Intent intent2 = new Intent (this,OrnamentalCropView.class );
+        Intent intent2 = new Intent(this, OrnamentalCropView.class);
         intent2.putExtra("send", "cassia.pdf");
-        startActivityForResult(intent2,0);
+        startActivityForResult(intent2, 0);
     }
 
     public void TreeDetail(View view) {
         Toast.makeText(this, "Detail Coming Soon", Toast.LENGTH_SHORT).show();
+    }
+
+    public void GotoAll(View view) {
+        Intent intentAll = new Intent(this, OrnamentalTreeView.class);
+        startActivity(intentAll);
+
+    }
+
+    public void GotoForest(View view) {
+        Intent intentAll = new Intent(this, ForestTreeView.class);
+        startActivity(intentAll);
     }
 }
 

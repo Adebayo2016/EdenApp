@@ -134,6 +134,7 @@
                     app:endIconDrawable="@drawable/remove_red_eye_24"
                     app:passwordToggleEnabled="true"
                     app:endIconMode="custom"
+
                     android:textColorHint="#FFFFFF">
 
 
@@ -147,6 +148,7 @@
                         android:inputType="textPassword"
                         android:maxLines="1"
                         android:paddingTop="40dp"
+                        android:textColor="@color/white"
                         android:textSize="20sp" />
                 </com.google.android.material.textfield.TextInputLayout>
 
@@ -171,7 +173,7 @@
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:layout_marginTop="5dp"
-                android:inputType="numberPassword|textPassword"
+                android:inputType="textPassword"
                 android:background="@android:color/transparent"
                 android:maxLines="1"
                 android:textSize="20sp"

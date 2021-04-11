@@ -8,10 +8,12 @@
     <uses-permission android:name="android.permission.INTERNET"/>
 
     <application
+
         android:allowBackup="true"
         android:usesCleartextTraffic="true"
         android:icon="@mipmap/ic_launcher"
         android:label="@string/app_name"
+        android:hardwareAccelerated="true"
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
         android:theme="@style/Theme.Eden"
@@ -43,6 +45,11 @@
 
         </activity>
         <activity android:name=".SelectionAlgo.Result" />
+        <activity android:name=".OrnamentalCropView" />
+        <activity android:name=".PushTestTree" />
+        <activity android:name=".OrnamentalTreeView" />
+        <activity android:name=".ForestTreeView" />
+        <activity android:name=".TreeDetailedInfo" />
 
 
     </application>

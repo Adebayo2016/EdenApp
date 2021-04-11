@@ -34,7 +34,7 @@
                 android:layout_marginLeft="15dp"
                 android:fontFamily="@font/open_sans_semibold"
                 android:text="Hello"
-                android:textColor="@color/black"
+                android:textColor="@color/white"
                 android:textSize="20sp" />
 
             <TextView
@@ -370,6 +370,21 @@
                     android:textSize="24dp"
                     android:textColor="@color/black"
                     android:layout_marginLeft="5dp" />
+                <TextView
+                    android:clickable="true"
+                    android:focusable="true"
+                    android:onClick="GotoForest"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="30dp"
+                    android:text="view All"
+                    android:layout_alignParentEnd="true"
+                    android:textColor="#36D083"
+                    android:layout_alignParentRight="true"
+                    android:paddingRight="20dp"
+                  android:textStyle="italic"
+                    />
+
                 <TableLayout
                     android:layout_marginStart="20dp"
                     android:layout_below="@+id/ornamental_gallery"
@@ -413,7 +428,7 @@
                                         android:layout_marginTop="10dp"
                                         android:layout_marginBottom="10dp"
                                         android:layout_marginLeft="15dp"
-                                        android:src="@drawable/glicidia"
+                                        android:src="@drawable/polylongi"
                                         android:scaleType="fitXY"/>
 
                                     <LinearLayout
@@ -471,7 +486,7 @@
                                         android:layout_marginTop="10dp"
                                         android:layout_marginBottom="10dp"
                                         android:layout_marginLeft="15dp"
-                                        android:src="@drawable/lebbeck"
+                                        android:src="@drawable/polylongi"
                                         android:scaleType="fitXY"/>
 
                                     <LinearLayout
@@ -549,7 +564,19 @@
                     android:textSize="15sp"
                     android:textColor="@color/black"
                     android:layout_marginLeft="5dp" />
-
+                <TextView
+                    android:clickable="true"
+                    android:onClick="GotoAll"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="20dp"
+                    android:text="@string/view_all"
+                    android:layout_alignParentEnd="true"
+                    android:textColor="#36D083"
+                    android:layout_alignParentRight="true"
+                    android:paddingRight="20dp"
+                    android:textStyle="italic"
+                    android:focusable="true" />
                 <LinearLayout
                     android:layout_width="match_parent"
                     android:layout_height="match_parent"
