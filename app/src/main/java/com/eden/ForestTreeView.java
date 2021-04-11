@@ -6,14 +6,15 @@ import androidx.appcompat.app.AppCompatActivity;
 import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 
-import com.eden.Adapters.TreeDetailsAdapter;
+import com.eden.Adapters.ForestTreeAdapter;
+
 import com.eden.Models.TreeDetailModel;
 import com.firebase.ui.database.FirebaseRecyclerOptions;
 import com.google.firebase.database.FirebaseDatabase;
 
 public class ForestTreeView extends AppCompatActivity {
     RecyclerView recyclerView;
-    TreeDetailsAdapter adapter;
+    ForestTreeAdapter adapter;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -29,7 +30,7 @@ public class ForestTreeView extends AppCompatActivity {
                         getReference().child("Forest Trees"), TreeDetailModel.class).build();
 
 
-        adapter = new TreeDetailsAdapter(options);
+        adapter = new ForestTreeAdapter(options);
         recyclerView.setAdapter(adapter);
 
     }

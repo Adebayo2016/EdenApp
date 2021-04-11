@@ -242,7 +242,7 @@ public class HomePage extends AppCompatActivity {
 
     public void BestTree(View view) {
 
-        Intent TreeIntent = new Intent(this, StateActivity.class);
+        Intent TreeIntent = new Intent(this,StateActivity.class);
         startActivity(TreeIntent);
     }
 

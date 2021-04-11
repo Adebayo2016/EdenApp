@@ -64,14 +64,9 @@ public class StateActivity extends AppCompatActivity {
         mAdapter = new StateAdapter(stateItem);
         mRecyclerView.setLayoutManager(mLayoutManager);
         mRecyclerView.setAdapter(mAdapter);
-
         mAdapter.setOnItemClickListener(new StateAdapter.OnItemClickedListener() {
             @Override
             public void OnItemClick(int position) {
-
-                final ProgressDialog progressDialog = new ProgressDialog(StateActivity.this);
-                progressDialog.setTitle("Loading...");
-                progressDialog.show();
 
                 final String state = stateItem.get(position).getStateName();
                 final String stateForest = stateItem.get(position).getForestType();
