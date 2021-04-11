@@ -46,7 +46,6 @@
         </activity>
         <activity android:name=".SelectionAlgo.Result" />
         <activity android:name=".OrnamentalCropView" />
-        <activity android:name=".PushTestTree" />
         <activity android:name=".OrnamentalTreeView" />
         <activity android:name=".ForestTreeView" />
         <activity android:name=".OrnamentalInfo" />
