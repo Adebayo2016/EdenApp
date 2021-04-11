@@ -3,6 +3,7 @@ package com.eden;
 import android.os.Bundle;
 import android.widget.ImageView;
 import android.widget.TextView;
+import android.widget.Toast;
 
 import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
@@ -39,6 +40,8 @@ public class OrnamentalInfo extends AppCompatActivity {
                     Glide.with(img.getContext()).load(imageUrl).into(img);
                     treeDetailText.setText(tree_desc);
 
+                } else {
+                    Toast.makeText(getApplicationContext(), "Unable to get Details", Toast.LENGTH_LONG).show();
                 }
 
             }
