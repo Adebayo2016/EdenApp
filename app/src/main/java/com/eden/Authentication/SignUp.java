@@ -11,6 +11,7 @@ import android.widget.EditText;
 import android.widget.Toast;
 
 import com.eden.HomePage;
+import com.eden.Models.TreeData;
 import com.eden.Models.User;
 import com.eden.R;
 import com.google.android.gms.tasks.OnCompleteListener;
@@ -45,7 +46,7 @@ public class SignUp extends AppCompatActivity {
         FirebaseApp.initializeApp(this);
 
         mAuth = FirebaseAuth.getInstance();
-        mDatabase = FirebaseDatabase.getInstance().getReference().child("users");
+        mDatabase = FirebaseDatabase.getInstance().getReference();
         email = findViewById(R.id.email_reg);
         password = findViewById(R.id.password_reg);
         username = findViewById(R.id.name_reg);
@@ -108,9 +109,9 @@ public class SignUp extends AppCompatActivity {
 
                 if (task.isSuccessful()) {
 
-                    User user = new User(full_name, user_mail);
+                    User user = new User(full_name,user_mail);
 
-                    FirebaseDatabase.getInstance().getReference("Users").child(Objects.requireNonNull(Objects.requireNonNull(FirebaseAuth.getInstance()
+                  FirebaseDatabase.getInstance().getReference("Users").child(Objects.requireNonNull(Objects.requireNonNull(FirebaseAuth.getInstance()
                             .getCurrentUser())).getUid()).setValue(user).addOnCompleteListener(new OnCompleteListener<Void>() {
                         @Override
                         public void onComplete(Task<Void> task) {
