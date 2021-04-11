@@ -15,6 +15,8 @@
             android:orientation="vertical"
             >
 
+
+
             <ImageView
                 android:id="@+id/tree_detailed_img"
                 android:layout_width="match_parent"
@@ -24,6 +26,7 @@
 
             <TextView
                 android:layout_marginTop="40dp"
+                android:layout_centerInParent="true"
                 android:layout_below="@+id/tree_detailed_img"
                 android:id="@+id/tree_detailed_info"
                 android:layout_width="match_parent"

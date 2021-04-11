@@ -49,7 +49,7 @@
         <activity android:name=".PushTestTree" />
         <activity android:name=".OrnamentalTreeView" />
         <activity android:name=".ForestTreeView" />
-        <activity android:name=".TreeDetailedInfo" />
+        <activity android:name=".OrnamentalInfo" />
 
 
     </application>

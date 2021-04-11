@@ -22,7 +22,7 @@ public class PushTestTree  extends AppCompatActivity {
         setContentView(R.layout.push_tree);
 
         FirebaseApp.initializeApp(this);
-        mDatabase= FirebaseDatabase.getInstance().getReference().child("Forest Trees");
+        mDatabase= FirebaseDatabase.getInstance().getReference().child("Ornamental Trees");
 
       treeData =new TreeData();
 
